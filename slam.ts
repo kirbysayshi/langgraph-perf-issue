@@ -2,10 +2,6 @@ import { Client } from "@langchain/langgraph-sdk";
 import { execSync } from "node:child_process";
 import { State } from ".";
 
-const lgClient = new Client({
-  apiUrl: `http://localhost:2024/`,
-});
-
 const argv = process.argv.slice(2);
 const CLI = {
   serverStreaming: parseCLIBool("--server-streaming", argv) ?? false,
@@ -22,6 +18,10 @@ for (let i = 0; i < CLI.maxRuns; i++) {
   const assistantId = CLI.serverStreaming ? "streaming" : "non-streaming";
 
   tasks.push(async () => {
+    const lgClient = new Client({
+      apiUrl: `http://localhost:2024/`,
+    });
+
     try {
       const thread = await lgClient.threads.create({
         graphId: assistantId,
