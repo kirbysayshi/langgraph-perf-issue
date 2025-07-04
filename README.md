@@ -9,6 +9,12 @@ pnpm install
 pnpm run dev
 ```
 
+You may want to signal the server via pid to allow profiling via Chrome DevTools:
+
+```
+kill -s SIGUSR2 [pid here]
+```
+
 # Usage
 
 ```
