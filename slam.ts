@@ -148,7 +148,7 @@ async function monitorCPU(aborter: AbortController) {
     result.maxRss = Math.max(result.maxRss, rss);
     cpus.push(cpu);
     firstTick = false;
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 100));
   }
 
   result.endTimeMs = Date.now();
