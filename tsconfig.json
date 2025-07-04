@@ -1,0 +1,48 @@
+{
+  "exclude": ["node_modules", "**/*/build"],
+  "compilerOptions": {
+    // Should require minimal, if any, modifications
+    "typeRoots": ["node_modules/@types", "./libraries/@types"],
+
+    // Project
+    "target": "es2022",
+    // Target of es2022 automatically sets this to `true`, which has the
+    // following behavior:
+    // - https://stackoverflow.com/a/74795726/169491.
+    // - https://github.com/microsoft/TypeScript/issues/52331#issuecomment-2027738951
+    //
+    // Unfortunately, this breaks code that relies on field initializers running
+    // _after_ the constructor field-initializer shorthand properties.
+    "useDefineForClassFields": false,
+    "module": "preserve",
+    "noEmit": true,
+
+    // Resolution
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+
+    // Linting-ish
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    // Advanced
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+
+    // Strictness
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true
+  }
+}

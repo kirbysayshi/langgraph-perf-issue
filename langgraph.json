@@ -1,0 +1,9 @@
+{
+  "node_version": "20",
+  "dependencies": ["."],
+  "graphs": {
+    "non-streaming": "./index.ts:nonStreamingGraph",
+    "streaming": "./index.ts:streamingGraph"
+  },
+  "env": ".env"
+}
